@@ -201,7 +201,7 @@
         "kicker": "The DR Plumbing shop",
         "heading": "Uniforms, gear and neighborhood merchandise",
         "copy": "<p>Order approved workwear, hats, magnets, mugs, phone cases and more without chasing down a printer.</p>",
-        "collection": "",
+        "collection": "frontpage",
         "products_to_show": 4,
         "background": "cream"
       }
