@@ -1,0 +1,98 @@
+<section class="hero">
+  <div class="page-width hero__grid">
+    <div>
+      {% if section.settings.eyebrow != blank %}<p class="hero__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h1>{{ section.settings.heading }}</h1>
+      {% if section.settings.copy != blank %}<div class="hero__copy rte">{{ section.settings.copy }}</div>{% endif %}
+      <div class="hero__actions">
+        <a class="button" href="tel:{{ settings.phone_digits | escape }}">Call {{ settings.phone_display }}</a>
+        <a class="button button--outline" href="sms:{{ settings.phone_digits | escape }}">Text us</a>
+        <a class="button button--navy" href="{{ section.settings.quote_link | default: settings.quote_url | default: '/pages/request-service' }}">{{ section.settings.quote_label }}</a>
+      </div>
+      <p class="hero__availability">{{ settings.availability }}</p>
+    </div>
+
+    <div class="hero__card">
+      <div class="hero__logo-wrap">
+        {% if settings.logo != blank %}
+          {{ settings.logo | image_url: width: 600 | image_tag: class: 'hero__logo', widths: '240, 360, 480, 600', alt: shop.name }}
+        {% else %}
+          <img class="hero__logo" src="{{ 'dr-plumbing-logo.png' | asset_url }}" width="248" height="262" alt="DR Plumbing and Drain Cleaning">
+        {% endif %}
+      </div>
+      <p class="hero__card-title">What can we help with?</p>
+      <ul class="hero__quick-list">
+        {% for block in section.blocks %}
+          <li {{ block.shopify_attributes }}>{{ block.settings.label }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Plumbing hero",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Local • Family-owned • Ready to help"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Plumbing problems don’t wait. <em>Neither do we.</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Text",
+      "default": "<p>From drain cleaning and snaking to kitchens, bathrooms, sump pumps, sewers and winterizations—call or text DR Plumbing for dependable local service.</p>"
+    },
+    {
+      "type": "text",
+      "id": "quote_label",
+      "label": "Quote button label",
+      "default": "Request a free quote"
+    },
+    {
+      "type": "url",
+      "id": "quote_link",
+      "label": "Quote button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Quick service",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Drain cleaning"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Plumbing hero",
+      "blocks": [
+        { "type": "service", "settings": { "label": "Drain cleaning" } },
+        { "type": "service", "settings": { "label": "Snaking" } },
+        { "type": "service", "settings": { "label": "Bathrooms" } },
+        { "type": "service", "settings": { "label": "Kitchens" } },
+        { "type": "service", "settings": { "label": "Sump pumps" } },
+        { "type": "service", "settings": { "label": "Sewers" } },
+        { "type": "service", "settings": { "label": "Winterizations" } },
+        { "type": "service", "settings": { "label": "Emergency service" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

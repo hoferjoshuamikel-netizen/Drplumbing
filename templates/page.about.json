@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": { "type": "main-page", "settings": { "kicker": "Family-owned and local" } },
+    "promise": {
+      "type": "rich-text",
+      "settings": {
+        "kicker": "The DR Plumbing promise",
+        "heading": "Hardworking service with a neighborhood reputation behind it",
+        "text": "<p>Use this section to add the verified family story, years of experience, qualifications and service philosophy. Do not publish claims until the plumbing team confirms them.</p>",
+        "background": "cream",
+        "button_label": ""
+      }
+    },
+    "quote": { "type": "quote-form", "settings": { "background": "white" } }
+  },
+  "order": ["main", "promise", "quote"]
+}

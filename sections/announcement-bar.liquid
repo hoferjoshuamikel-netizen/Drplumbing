@@ -1,0 +1,45 @@
+{% if section.settings.show_bar %}
+  <div class="announcement" role="region" aria-label="Announcement">
+    <div class="page-width announcement__inner">
+      <span>{{ section.settings.message }}</span>
+      {% if section.settings.show_phone %}
+        <a href="tel:{{ settings.phone_digits | escape }}">Call or text {{ settings.phone_display }}</a>
+      {% endif %}
+      {% if section.settings.secondary != blank %}
+        <span class="announcement__secondary">{{ section.settings.secondary }}</span>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_bar",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Emergency plumbing service available"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phone",
+      "label": "Show phone number",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "secondary",
+      "label": "Secondary message",
+      "default": "Nights • Weekends • Holidays"
+    }
+  ]
+}
+{% endschema %}

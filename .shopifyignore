@@ -1,0 +1,12 @@
+.git/
+.github/
+.idea/
+.vscode/
+.shopify/
+docs/
+node_modules/
+CHANGELOG.md
+LICENSE.md
+README.md
+*.log
+*.zip

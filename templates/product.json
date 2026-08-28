@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": { "type": "main-product", "settings": { "show_dynamic_checkout": true } },
+    "emergency": {
+      "type": "emergency-band",
+      "settings": {
+        "heading": "Shopping for gear but need a plumber?",
+        "text": "Merchandise orders and plumbing services are separate. Call or text for plumbing help."
+      }
+    }
+  },
+  "order": ["main", "emergency"]
+}

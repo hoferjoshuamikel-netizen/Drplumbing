@@ -1,0 +1,52 @@
+<section class="section section--navy">
+  <div class="page-width">
+    <div class="heading-row">
+      <div>
+        {% if section.settings.kicker != blank %}<p class="section-kicker">{{ section.settings.kicker }}</p>{% endif %}
+        <h2 class="section-heading">{{ section.settings.heading }}</h2>
+        {% if section.settings.copy != blank %}<div class="section-copy rte">{{ section.settings.copy }}</div>{% endif %}
+      </div>
+    </div>
+    <div class="review-grid">
+      {% for block in section.blocks %}
+        <article class="review-card" {{ block.shopify_attributes }}>
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>“{{ block.settings.quote }}”</blockquote>
+          <cite>{{ block.settings.name }}</cite>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer reviews",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Neighborhood trust" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real service builds a recognizable local name" },
+    { "type": "richtext", "id": "copy", "label": "Text", "default": "<p>Replace these placeholders with verified customer reviews before publishing.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Review", "default": "Add a verified customer review here." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Verified customer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer reviews",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

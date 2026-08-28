@@ -1,0 +1,18 @@
+<header class="page-hero">
+  <div class="page-width">
+    {% if section.settings.kicker != blank %}<p class="section-kicker">{{ section.settings.kicker }}</p>{% endif %}
+    <h1>{{ page.title }}</h1>
+  </div>
+</header>
+<div class="page-width">
+  <div class="page-content rte">{{ page.content }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker" }
+  ]
+}
+{% endschema %}

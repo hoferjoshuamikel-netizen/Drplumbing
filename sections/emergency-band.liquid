@@ -1,0 +1,23 @@
+<section class="emergency-band">
+  <div class="page-width emergency-band__inner">
+    <div>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+    </div>
+    <div class="emergency-band__actions">
+      <a class="button button--light" href="tel:{{ settings.phone_digits | escape }}">Call {{ settings.phone_display }}</a>
+      <a class="button button--outline" href="sms:{{ settings.phone_digits | escape }}">Text now</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Emergency callout",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Have an urgent plumbing problem?" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Call or text DR Plumbing. Emergency service may be available nights, weekends and holidays." }
+  ],
+  "presets": [{ "name": "Emergency callout" }]
+}
+{% endschema %}

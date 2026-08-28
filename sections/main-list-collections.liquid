@@ -1,0 +1,25 @@
+<header class="page-hero">
+  <div class="page-width"><p class="section-kicker">DR Plumbing shop</p><h1>Shop collections</h1></div>
+</header>
+<section class="section">
+  <div class="page-width product-grid">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <article class="product-card">
+          <a class="product-card__image" href="{{ collection.url }}">
+            {% if collection.featured_image %}
+              {{ collection.featured_image | image_url: width: 760 | image_tag: widths: '280, 420, 560, 760', loading: 'lazy', alt: collection.title }}
+            {% else %}
+              <div class="product-card__placeholder">{{ collection.title }}</div>
+            {% endif %}
+          </a>
+          <div class="product-card__body"><h2 class="product-card__title"><a href="{{ collection.url }}">{{ collection.title }}</a></h2></div>
+        </article>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

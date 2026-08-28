@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "quote": {
+      "type": "quote-form",
+      "settings": {
+        "kicker": "Free quote request",
+        "heading": "Request plumbing service",
+        "copy": "<p>For urgent problems, call or text 585-465-2138. Otherwise, send the details below and the plumbing team can follow up.</p>",
+        "button_label": "Send my request",
+        "success_message": "Thank you. Your request was sent to DR Plumbing.",
+        "background": "cream"
+      }
+    },
+    "emergency": { "type": "emergency-band", "settings": {} }
+  },
+  "order": ["quote", "emergency"]
+}

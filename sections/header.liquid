@@ -1,0 +1,91 @@
+<header class="site-header">
+  <div class="page-width site-header__inner">
+    <a class="brand-mark" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
+      {% if settings.logo != blank %}
+        {{ settings.logo | image_url: width: 360 | image_tag: class: 'brand-logo', widths: '120, 180, 240, 360', alt: shop.name }}
+      {% else %}
+        <img class="brand-logo" src="{{ 'dr-plumbing-logo.png' | asset_url }}" width="124" height="131" alt="DR Plumbing and Drain Cleaning">
+      {% endif %}
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {% if section.settings.menu != blank %}
+        <ul class="nav-list">
+          {% for link in section.settings.menu.links %}
+            <li>
+              {% if link.links != blank %}
+                <details class="nav-dropdown">
+                  <summary class="nav-summary">{{ link.title }}</summary>
+                  <ul class="nav-dropdown__menu">
+                    {% for child_link in link.links %}
+                      <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </details>
+              {% else %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <ul class="nav-list">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="/pages/services">Services</a></li>
+          <li><a href="/pages/about-us">About</a></li>
+          <li><a href="/pages/reviews">Reviews</a></li>
+          <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+          <li><a href="/pages/request-service">Request Service</a></li>
+        </ul>
+      {% endif %}
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:{{ settings.phone_digits | escape }}">{{ settings.phone_display }}</a>
+      <a class="button header-quote" href="{{ settings.quote_url | default: '/pages/request-service' }}">Free quote</a>
+      <a class="cart-link" href="{{ routes.cart_url }}" aria-label="Cart with {{ cart.item_count }} items">
+        <span aria-hidden="true">Bag</span>
+        {% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}
+      </a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="MobileMenu" aria-label="Open menu">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="MobileMenu" class="mobile-menu" data-mobile-menu hidden aria-label="Mobile navigation">
+    {% if section.settings.menu != blank %}
+      <ul>
+        {% for link in section.settings.menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% for child_link in link.links %}
+            <li><a href="{{ child_link.url }}">— {{ child_link.title }}</a></li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <ul>
+        <li><a href="{{ routes.root_url }}">Home</a></li>
+        <li><a href="/pages/services">Services</a></li>
+        <li><a href="/pages/about-us">About</a></li>
+        <li><a href="/pages/reviews">Reviews</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+        <li><a href="/pages/request-service">Request Service</a></li>
+      </ul>
+    {% endif %}
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

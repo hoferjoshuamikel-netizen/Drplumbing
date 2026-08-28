@@ -1,0 +1,41 @@
+<header class="page-hero">
+  <div class="page-width"><h1>Search</h1></div>
+</header>
+<section class="section">
+  <div class="page-width">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="form-card">
+      <div class="form-grid">
+        <div class="field field--full">
+          <label for="SearchInput">Search products and pages</label>
+          <input id="SearchInput" type="search" name="q" value="{{ search.terms | escape }}">
+        </div>
+        <div class="field field--full"><button class="button" type="submit">Search</button></div>
+      </div>
+    </form>
+
+    {% if search.performed %}
+      {% paginate search.results by 12 %}
+        <div class="section">
+          <h2>{{ search.results_count }} results for “{{ search.terms }}”</h2>
+          <div class="product-grid">
+            {% for item in search.results %}
+              {% if item.object_type == 'product' %}
+                {% render 'product-card', product: item %}
+              {% else %}
+                <article class="service-card">
+                  <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                  <p>{{ item.content | strip_html | truncate: 150 }}</p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% if paginate.pages > 1 %}<nav class="pagination">{{ paginate | default_pagination }}</nav>{% endif %}
+      {% endpaginate %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

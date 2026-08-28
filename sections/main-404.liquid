@@ -1,0 +1,15 @@
+<section class="section">
+  <div class="page-width empty-state">
+    <p class="section-kicker">404</p>
+    <h1>That page could not be found</h1>
+    <p>Return home, browse the store, or call DR Plumbing if you need service.</p>
+    <p>
+      <a class="button" href="{{ routes.root_url }}">Return home</a>
+      <a class="button button--outline" href="tel:{{ settings.phone_digits | escape }}">Call {{ settings.phone_display }}</a>
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "404", "settings": [] }
+{% endschema %}

@@ -1,0 +1,82 @@
+<footer class="site-footer">
+  <div class="page-width">
+    <div class="footer-grid">
+      <div>
+        <a class="footer-logo-wrap" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
+          {% if settings.logo != blank %}
+            {{ settings.logo | image_url: width: 360 | image_tag: class: 'footer-logo', widths: '180, 240, 360', alt: shop.name }}
+          {% else %}
+            <img class="footer-logo" src="{{ 'dr-plumbing-logo.png' | asset_url }}" width="170" height="180" alt="DR Plumbing and Drain Cleaning">
+          {% endif %}
+        </a>
+        <p class="footer-copy">{{ section.settings.description }}</p>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Explore</h2>
+        <ul class="footer-links">
+          {% if section.settings.menu != blank %}
+            {% for link in section.settings.menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          {% else %}
+            <li><a href="/pages/services">Plumbing services</a></li>
+            <li><a href="/pages/about-us">About us</a></li>
+            <li><a href="{{ routes.all_products_collection_url }}">Shop merchandise</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Customer care</h2>
+        <ul class="footer-links">
+          {% if section.settings.policy_menu != blank %}
+            {% for link in section.settings.policy_menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          {% else %}
+            <li><a href="/pages/contact">Contact</a></li>
+            <li><a href="{{ routes.cart_url }}">Cart</a></li>
+            <li><a href="/policies/shipping-policy">Shipping</a></li>
+            <li><a href="/policies/refund-policy">Returns</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Need a plumber?</h2>
+        <a class="footer-phone" href="tel:{{ settings.phone_digits | escape }}">{{ settings.phone_display }}</a>
+        <p class="footer-copy">Call or text. {{ settings.availability }}</p>
+        <a class="button button--light" href="{{ settings.quote_url | default: '/pages/request-service' }}">Request service</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved. Merchandise purchases and plumbing-service requests are handled separately.
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Local, family-owned plumbing and drain cleaning with straightforward service and a dependable neighborhood reputation."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu"
+    },
+    {
+      "type": "link_list",
+      "id": "policy_menu",
+      "label": "Policy menu"
+    }
+  ]
+}
+{% endschema %}

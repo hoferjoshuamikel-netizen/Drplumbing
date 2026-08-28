@@ -1,0 +1,77 @@
+<section class="section">
+  <div class="page-width product-layout">
+    <div class="product-media-grid">
+      {% if product.media.size > 0 %}
+        {% for media in product.media %}
+          <div class="product-media">
+            {% if media.media_type == 'image' %}
+              {% assign product_media_alt = media.alt | default: product.title %}
+              {{ media | image_url: width: 1400 | image_tag: widths: '420, 700, 1000, 1400', loading: 'lazy', alt: product_media_alt }}
+            {% else %}
+              {{ media | media_tag }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="product-media"><div class="product-card__placeholder" style="min-height:520px">Product image</div></div>
+      {% endif %}
+    </div>
+
+    <div class="product-info">
+      {% if product.vendor != blank %}<p class="section-kicker">{{ product.vendor }}</p>{% endif %}
+      <h1>{{ product.title }}</h1>
+      <div class="product-info__price">
+        <span id="ProductPrice-{{ section.id }}">{{ product.selected_or_first_available_variant.price | money }}</span>
+        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+          <span class="compare-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+      {% if product.description != blank %}<div class="product-info__description rte">{{ product.description }}</div>{% endif %}
+
+      {% form 'product', product, class: 'product-form' %}
+        {% unless product.has_only_default_variant %}
+          <div class="field">
+            <label for="Variant-{{ section.id }}">Options</label>
+            <select id="Variant-{{ section.id }}" name="id">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                  {{ variant.title }}{% unless variant.available %} — Sold out{% endunless %} — {{ variant.price | money }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        {% else %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% endunless %}
+
+        <div class="field">
+          <label for="Quantity-{{ section.id }}">Quantity</label>
+          <div class="quantity" data-quantity>
+            <button type="button" data-quantity-action="decrease" aria-label="Decrease quantity">−</button>
+            <input id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1">
+            <button type="button" data-quantity-action="increase" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <button class="button" type="submit" name="add" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+          {% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}
+        </button>
+        {% if section.settings.show_dynamic_checkout %}{{ form | payment_button }}{% endif %}
+      {% endform %}
+
+      <div class="product-notes">
+        {{ section.settings.fulfillment_note }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product information",
+  "settings": [
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show dynamic checkout button", "default": true },
+    { "type": "textarea", "id": "fulfillment_note", "label": "Fulfillment note", "default": "Merchandise is produced and shipped separately from plumbing services. Check the product details for sizing, production and return information." }
+  ]
+}
+{% endschema %}

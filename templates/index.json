@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-service",
+      "blocks": {
+        "service_1": { "type": "service", "settings": { "label": "Drain cleaning" } },
+        "service_2": { "type": "service", "settings": { "label": "Snaking" } },
+        "service_3": { "type": "service", "settings": { "label": "Bathrooms" } },
+        "service_4": { "type": "service", "settings": { "label": "Kitchens" } },
+        "service_5": { "type": "service", "settings": { "label": "Sump pumps" } },
+        "service_6": { "type": "service", "settings": { "label": "Sewers" } },
+        "service_7": { "type": "service", "settings": { "label": "Winterizations" } },
+        "service_8": { "type": "service", "settings": { "label": "Emergency service" } }
+      },
+      "block_order": ["service_1", "service_2", "service_3", "service_4", "service_5", "service_6", "service_7", "service_8"],
+      "settings": {
+        "eyebrow": "Local • Family-owned • Ready to help",
+        "heading": "Plumbing problems don’t wait. <em>Neither do we.</em>",
+        "copy": "<p>From drain cleaning and snaking to kitchens, bathrooms, sump pumps, sewers and winterizations—call or text DR Plumbing for dependable local service.</p>",
+        "quote_label": "Request a free quote"
+      }
+    },
+    "trust": {
+      "type": "trust-strip",
+      "blocks": {
+        "trust_1": { "type": "item", "settings": { "heading": "Family-owned", "text": "Local people, personal service" } },
+        "trust_2": { "type": "item", "settings": { "heading": "Call or text", "text": "585-465-2138" } },
+        "trust_3": { "type": "item", "settings": { "heading": "Emergency help", "text": "Nights, weekends and holidays" } },
+        "trust_4": { "type": "item", "settings": { "heading": "Free quotes", "text": "Tell us what is going on" } }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
+      "settings": {}
+    },
+    "services": {
+      "type": "service-grid",
+      "blocks": {
+        "service_a": { "type": "service", "settings": { "heading": "Drain cleaning and snaking", "text": "Help for slow, clogged and backed-up drains." } },
+        "service_b": { "type": "service", "settings": { "heading": "Bathrooms and kitchens", "text": "Fixtures, leaks, repairs and plumbing improvements." } },
+        "service_c": { "type": "service", "settings": { "heading": "Sump pumps", "text": "Installation, replacement and troubleshooting." } },
+        "service_d": { "type": "service", "settings": { "heading": "Sewer services", "text": "Assessment and service for troublesome sewer lines." } },
+        "service_e": { "type": "service", "settings": { "heading": "Winterizations", "text": "Prepare plumbing systems and properties for freezing weather." } },
+        "service_f": { "type": "service", "settings": { "heading": "Emergency plumbing", "text": "Call or text for urgent plumbing problems, including nights, weekends and holidays." } }
+      },
+      "block_order": ["service_a", "service_b", "service_c", "service_d", "service_e", "service_f"],
+      "settings": {
+        "kicker": "Complete plumbing help",
+        "heading": "The services homeowners need most",
+        "copy": "<p>Clear service categories help customers quickly identify the problem and contact the right local team.</p>",
+        "background": "white",
+        "button_label": "View all services"
+      }
+    },
+    "emergency": {
+      "type": "emergency-band",
+      "settings": {
+        "heading": "Have an urgent plumbing problem?",
+        "text": "Call or text DR Plumbing. Emergency service may be available nights, weekends and holidays."
+      }
+    },
+    "merch": {
+      "type": "featured-collection",
+      "settings": {
+        "kicker": "The DR Plumbing shop",
+        "heading": "Uniforms, gear and neighborhood merchandise",
+        "copy": "<p>Order approved workwear, hats, magnets, mugs, phone cases and more without chasing down a printer.</p>",
+        "products_to_show": 4,
+        "background": "cream"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "review_1": { "type": "review", "settings": { "quote": "Replace this with a verified customer review before publishing.", "name": "Verified customer" } },
+        "review_2": { "type": "review", "settings": { "quote": "Replace this with a verified customer review before publishing.", "name": "Verified customer" } },
+        "review_3": { "type": "review", "settings": { "quote": "Replace this with a verified customer review before publishing.", "name": "Verified customer" } }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "kicker": "Neighborhood trust",
+        "heading": "Real service builds a recognizable local name",
+        "copy": "<p>Add verified reviews here before publishing.</p>"
+      }
+    },
+    "area": {
+      "type": "service-area",
+      "blocks": {
+        "area_1": { "type": "place", "settings": { "place": "Add verified service area" } },
+        "area_2": { "type": "place", "settings": { "place": "Add verified service area" } },
+        "area_3": { "type": "place", "settings": { "place": "Add verified service area" } },
+        "area_4": { "type": "place", "settings": { "place": "Add verified service area" } },
+        "area_5": { "type": "place", "settings": { "place": "Add verified service area" } },
+        "area_6": { "type": "place", "settings": { "place": "Add verified service area" } }
+      },
+      "block_order": ["area_1", "area_2", "area_3", "area_4", "area_5", "area_6"],
+      "settings": {
+        "kicker": "Local service",
+        "heading": "Proudly serving our surrounding communities",
+        "copy": "<p>Add the verified cities, towns or counties that DR Plumbing regularly serves. Customers outside the listed area can call or text to ask.</p>"
+      }
+    },
+    "quote": {
+      "type": "quote-form",
+      "settings": {
+        "kicker": "Free quote request",
+        "heading": "Tell us what is going on",
+        "copy": "<p>For emergencies, call or text 585-465-2138. For regular service, send the details below and the plumbing team can follow up.</p>",
+        "button_label": "Request my free quote",
+        "success_message": "Thank you. Your request was sent to DR Plumbing.",
+        "background": "cream"
+      }
+    }
+  },
+  "order": ["hero", "trust", "services", "emergency", "merch", "reviews", "area", "quote"]
+}

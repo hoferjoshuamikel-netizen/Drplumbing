@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "main": { "type": "main-page", "settings": { "kicker": "Local plumbing services" } },
+    "services": {
+      "type": "service-grid",
+      "blocks": {
+        "s1": { "type": "service", "settings": { "heading": "Drain cleaning and snaking", "text": "Help for slow, clogged and backed-up drains." } },
+        "s2": { "type": "service", "settings": { "heading": "Bathrooms and kitchens", "text": "Fixtures, leaks, repairs and plumbing improvements." } },
+        "s3": { "type": "service", "settings": { "heading": "Sump pumps", "text": "Installation, replacement and troubleshooting." } },
+        "s4": { "type": "service", "settings": { "heading": "Sewer services", "text": "Assessment and service for troublesome sewer lines." } },
+        "s5": { "type": "service", "settings": { "heading": "Winterizations", "text": "Prepare properties and plumbing systems for freezing weather." } },
+        "s6": { "type": "service", "settings": { "heading": "Emergency plumbing", "text": "Call or text for urgent plumbing problems, including nights, weekends and holidays." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4", "s5", "s6"],
+      "settings": {
+        "kicker": "What we handle",
+        "heading": "Straightforward help for common plumbing problems",
+        "copy": "<p>Call or text DR Plumbing to describe the problem and confirm availability.</p>",
+        "background": "cream",
+        "button_label": ""
+      }
+    },
+    "emergency": { "type": "emergency-band", "settings": {} },
+    "quote": { "type": "quote-form", "settings": { "background": "white" } }
+  },
+  "order": ["main", "services", "emergency", "quote"]
+}

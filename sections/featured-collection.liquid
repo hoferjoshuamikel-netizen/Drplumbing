@@ -1,0 +1,52 @@
+<section class="section {% if section.settings.background == 'cream' %}section--cream{% endif %}">
+  <div class="page-width">
+    <div class="heading-row">
+      <div>
+        {% if section.settings.kicker != blank %}<p class="section-kicker">{{ section.settings.kicker }}</p>{% endif %}
+        <h2 class="section-heading">{{ section.settings.heading }}</h2>
+        {% if section.settings.copy != blank %}<div class="section-copy rte">{{ section.settings.copy }}</div>{% endif %}
+      </div>
+      {% if section.settings.collection != blank %}
+        <a class="button button--navy" href="{{ section.settings.collection.url }}">Shop the collection</a>
+      {% else %}
+        <a class="button button--navy" href="{{ routes.all_products_collection_url }}">Shop all merchandise</a>
+      {% endif %}
+    </div>
+
+    <div class="product-grid">
+      {% if section.settings.collection != blank and section.settings.collection.products_count > 0 %}
+        {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <article class="product-card">
+            <div class="product-card__image"><div class="product-card__placeholder">Add a Shopify product</div></div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">DR Plumbing merchandise</h3>
+              <span class="product-price">Connect a collection</span>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured merchandise",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "The DR Plumbing shop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Uniforms, gear and neighborhood merchandise" },
+    { "type": "richtext", "id": "copy", "label": "Text", "default": "<p>Order approved workwear, hats, magnets, mugs, phone cases and more without chasing down a printer.</p>" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 2, "max": 8, "step": 1, "default": 4 },
+    { "type": "select", "id": "background", "label": "Background", "default": "cream", "options": [
+      { "value": "white", "label": "White" },
+      { "value": "cream", "label": "Light" }
+    ] }
+  ],
+  "presets": [{ "name": "Featured merchandise" }]
+}
+{% endschema %}

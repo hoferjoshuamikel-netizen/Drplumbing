@@ -1,0 +1,23 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Local Shopify and environment data
+.shopify/
+.env
+.env.*
+!.env.example
+
+# Package and build output
+node_modules/
+dist/
+coverage/
+
+# Logs and archives
+*.log
+*.zip

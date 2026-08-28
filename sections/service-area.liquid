@@ -1,0 +1,51 @@
+<section class="section section--cream">
+  <div class="page-width area-grid">
+    <div>
+      {% if section.settings.kicker != blank %}<p class="section-kicker">{{ section.settings.kicker }}</p>{% endif %}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.copy != blank %}<div class="section-copy rte">{{ section.settings.copy }}</div>{% endif %}
+      <p><a class="button" href="tel:{{ settings.phone_digits | escape }}">Ask about your address</a></p>
+    </div>
+    <div class="area-panel">
+      <ul class="area-list">
+        {% for block in section.blocks %}
+          <li {{ block.shopify_attributes }}>{{ block.settings.place }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Service area",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Local service" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Proudly serving our surrounding communities" },
+    { "type": "richtext", "id": "copy", "label": "Text", "default": "<p>Add the verified cities, towns or counties that DR Plumbing regularly serves. Customers outside the listed area can call or text to ask.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "place",
+      "name": "Place",
+      "settings": [
+        { "type": "text", "id": "place", "label": "City, town or county", "default": "Add service area" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service area",
+      "blocks": [
+        { "type": "place" },
+        { "type": "place" },
+        { "type": "place" },
+        { "type": "place" },
+        { "type": "place" },
+        { "type": "place" }
+      ]
+    }
+  ]
+}
+{% endschema %}

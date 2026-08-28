@@ -1,0 +1,30 @@
+{
+  "current": {
+    "brand_navy": "#172650",
+    "brand_red": "#D62828",
+    "brand_cream": "#F7F5F0",
+    "text_color": "#17213A",
+    "muted_color": "#5A6477",
+    "phone_display": "585-465-2138",
+    "phone_digits": "+15854652138",
+    "availability": "Emergency service • Nights • Weekends • Holidays",
+    "service_area": "Proudly serving our local community",
+    "page_width": 1240,
+    "card_radius": 14
+  },
+  "presets": {
+    "DR Plumbing": {
+      "brand_navy": "#172650",
+      "brand_red": "#D62828",
+      "brand_cream": "#F7F5F0",
+      "text_color": "#17213A",
+      "muted_color": "#5A6477",
+      "phone_display": "585-465-2138",
+      "phone_digits": "+15854652138",
+      "availability": "Emergency service • Nights • Weekends • Holidays",
+      "service_area": "Proudly serving our local community",
+      "page_width": 1240,
+      "card_radius": 14
+    }
+  }
+}
