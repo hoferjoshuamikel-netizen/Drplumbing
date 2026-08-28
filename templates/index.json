@@ -73,7 +73,7 @@
       ],
       "settings": {
         "eyebrow": "Local • Family-owned • Ready to help",
-        "heading": "Plumbing problems don’t wait.....                                                            <em>Neither do we.</em>",
+        "heading": "Plumbing problems don’t wait..............                                                            <em>Neither do we.</em>",
         "copy": "<p>From drain cleaning and snaking to kitchens, bathrooms, sump pumps, sewers and winterizations   </p><p>call or text DR Plumbing for dependable local service.</p>",
         "quote_label": "Request a free quote",
         "quote_link": ""
@@ -248,37 +248,37 @@
         "area_1": {
           "type": "place",
           "settings": {
-            "place": "Add verified service area"
+            "place": "Rochester"
           }
         },
         "area_2": {
           "type": "place",
           "settings": {
-            "place": "Add verified service area"
+            "place": "Monroe County"
           }
         },
         "area_3": {
           "type": "place",
           "settings": {
-            "place": "Add verified service area"
+            "place": "Sodus"
           }
         },
         "area_4": {
           "type": "place",
           "settings": {
-            "place": "Add verified service area"
+            "place": "Wayne County"
           }
         },
         "area_5": {
           "type": "place",
           "settings": {
-            "place": "Add verified service area"
+            "place": "Seneca County"
           }
         },
         "area_6": {
           "type": "place",
           "settings": {
-            "place": "Add verified service area"
+            "place": "Ontario County"
           }
         }
       },
